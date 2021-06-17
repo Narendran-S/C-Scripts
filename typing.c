@@ -39,7 +39,7 @@ char name[15];
 void getscore(int score,int speed,int level);
 void startgame();
 void scorecard();
-void About_me();
+void About_us();
 void help();
 void rectangle(int x,int y,int l,int b)
 {
@@ -72,19 +72,18 @@ for(i=x+1;i<l-1;i++)
 gotoxy(i,m);
 printf("%c",205);
 }
-gotoxy(i,m); printf("%c",188);
+gotoxy(i,m);printf("%c",188);
 }
 int main()
-{
-int ch;
+{int ch;
 time_t t;
 time(&t);
 x=1;
 system("cls");
 pos;
-setcolor(12);
+setcolor(14) ;
 printf("welcome to typing game ");
-setcolor(10) ;
+setcolor(15) ;
 pos;
 printf("%s",ctime(&t));
 pos;
@@ -108,7 +107,7 @@ printf("3.Set the time limit::");
 pos;
 printf("4.Help");
 pos;
-printf("5.About me");
+printf("5.About us");
 pos;
 printf("0.exit");
 pos;
@@ -124,11 +123,11 @@ case 3:sett();
 main();
 case 4:help();
 break;
-case 5:About_me();
+case 5:About_us();
 break;
 case 0:system("cls");
 gotoxy(17,10);
-printf("#This Game is created by Pushy potter#");
+printf("This Game is created by \nMohanraj S\nNaveen\nNeithhala\nNarendran");
 delay(1000);
 exit(1);
 default:main();
@@ -146,17 +145,18 @@ system("cls");
 srand(time(NULL));
 x=2;
 pos;
-setcolor(12);
-printf("#select the Mode#");pos;
+setcolor(9);
+printf("select the Mode");
+pos;
 ln
 pos;
-printf("1.Easy mode#");
+printf("1.Easy mode");
 pos;
-printf("2.Normal mode#");
+printf("2.Normal mode");
 pos;
-printf("3.hard mood#");
+printf("3.hard mood");
 pos;
-printf("4.Back to main menu#");
+printf("4.Back to main menu");
 pos;
 scanf("%d",&level);
 if(level==4)
@@ -179,8 +179,8 @@ break;
 r=rand()%1000;
 r=r%26+mode;
 gotoxy(20,8);
-printf("....Type the following character....");
-gotoxy(36,11);
+printf("....Type the following character.... \t\t\tThat is following upcoming letters.......");
+gotoxy(36,11) ;
 printf(" %c",r);
 letter=getch();
 if(letter!=r)
@@ -211,10 +211,10 @@ if(time_spent<t-1)
 printf("You  are looser!loser!loser!Game Over!");
 else
 {
-setcolor(11);
+setcolor(15);
 printf("Times up !Game over!");
 pos;
-setcolor(5);
+setcolor(9);
 if((speed>=40)&&(speed<=50))
 {
 printf("Good Work !Keep it up!");
@@ -251,13 +251,13 @@ break;
 case 2:main();
 break;
 case 3:system("cls");
-gotoxy(100,30)
-;printf("#This Game is created by Pushy Potter#");
+gotoxy(17,10);
+printf("This game is game is created by \nMohanraj\nNaveen\nNeithhala\nNarendran");
 delay(1000);
 exit(1);
 default:
 pos;
-printf("wrong choice!");
+printf("wrong choice!!!!!");
 pos;
 main();
 }
@@ -295,8 +295,8 @@ default:main();
 void help()
 {
 system("cls");
-gotoxy(30,5);
-setcolor(6);
+gotoxy(7,5);
+setcolor(9);
 printf("#......Rules of the Game......#");
 gotoxy(7,6);
 printf("=>Enter your name as player name");
@@ -310,40 +310,38 @@ gotoxy(7,10);
 printf("=>Avoid incorrect typing otherwise game will be over..");
 getch();main();
 }
-void About_me()
+void About_us()
 {system("cls");
 gotoxy(7,7);
-printf("Hello everyone i am Pushy ,EIE 1st Year GCT,Coimbatore.");
-printf(".Be enjoy while playing this game.\nI think it would be better....thanks...");
+printf("Hello everyone,\nThis is EIE 1st Year students\nGCT\nCoimbatore.\n\nMohanraj\n\tNaveen\n\t\tNeithhala\n\t\t\tNarendran");
+printf("\n\n.Be enjoy while playing this game.\nI think it would be better....thanks...");
 getch();
 main();
 }
 void getscore(int score,int speed,int level)
 {
-FILE *fp;
-fp=fopen("file.txt","a");
+FILE *a;
+a=fopen("file.txt","a");
 pos;
-if(fp==NULL)
+if(a==NULL)
 printf("error in opening file");
-fprintf(fp,"\nname=%s   score=%d    speed=%d    level=%d",name,score,speed,level);
-fclose(fp);
+fprintf(a,"\nname=%s   score=%d    speed=%d    level=%d",name,score,speed,level);
+fclose(a);
 pos;
 printf("scorecard updated");
 }
 void scorecard()
 {int ch;
-FILE *fp;
-system("cls"); 
+FILE *a;
+system("cls");
 x=3;
 printf("\t\t\t....The scores are...\n");
-fp=fopen("file.txt","r");
-while((ch=fgetc(fp))!=EOF)
+a=fopen("file.txt","r");
+while((ch=fgetc(a))!=EOF)
 {
 printf("%c",ch);
 }
 getch();
 main();
 }
-
-
 
